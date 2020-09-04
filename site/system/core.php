@@ -2,9 +2,9 @@
 /* Константы БД */
 
 define ('DBHOST', 'localhost');
-define ('DBUSER', 'sovhomec_sovhome'); // Пользователь базы
-define ('DBPASS', 'L3SrbfuAI'); // Пароль БД
-define ('DBNAME', 'sovhomec_sovhome'); // Имя базы данных
+define ('DBUSER', 's92243jz_sovhome'); // Пользователь базы
+define ('DBPASS', 'k78ay%Cl'); // Пароль БД
+define ('DBNAME', 's92243jz_sovhome'); // Имя базы данных
 
 
 //Подключаемся к БД Хост, Имя пользователя MySQL, его пароль, имя нашей базы
