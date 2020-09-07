@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 }
 
 //Кодировка данных получаемых из базы
-mysqli_query("SET NAMES 'utf8' ");
+mysqli_query($connect, "SET NAMES utf8");
 
 
 ?>

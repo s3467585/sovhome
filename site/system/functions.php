@@ -12,6 +12,7 @@ function protect($text) {
 
 /* Функция отображения времени */
 function clock($time) {
+	$time = $time;
 	$timep= date("j M Y в H:i", $time);
 	$time_p[0]=date("j n Y", $time);
 	$time_p[1]=date("H:i", $time);
@@ -48,5 +49,18 @@ function head() {
 # Низ
 function foot() {
 	require './style/foot.php';
+}
+
+# Отправка сообщения на Mail
+function mailalarm(){   
+    $to      = 's3467585@gmail.com';
+    $subject = 'Новая тема';
+    $message = 'срочное сообщение';
+    $headers = array(
+        'From' => 'sovhomec@sovhome.cu.ma',
+        'Reply-To' => 'sovhomec@sovhome.cu.ma',
+        'X-Mailer' => 'PHP/' . phpversion()
+    );
+    mail($to, $subject, $message, $headers);
 }
 ?>
