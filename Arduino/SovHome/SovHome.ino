@@ -5,12 +5,18 @@
 
 #define ONE_WIRE_BUS 0                                  // пин шины данных  1-Wire
 
+DeviceAddress ds1 = {0x28, 0xAC, 0xF3, 0x79, 0x97, 0x12, 0x03, 0x21};    // Адрес уличного датчика
+DeviceAddress ds2 = {0x28, 0x24, 0x4C, 0x79, 0x97, 0x12, 0x03, 0x4A};    // Адрес датчика на подаче
+DeviceAddress ds3 = {0x28, 0x13, 0x69, 0x79, 0x97, 0x12, 0x03, 0x08};    // Адрес датчика на обратке
+  
+
 const char* getKey = "sovhome";                         // специальный код, для обработки запроса на сервере
-const char* ssid = "Mikrotik";                          // перемныные для подключения к точке доступа
-const char* password = "12345678";
+const char* ssid = "IoT";                          // перемныные для подключения к точке доступа
+const char* password = "876543210";
 
 float temp0C;                                            // переменная значения температуры в градусах цельсия
-float temp1C; 
+float temp1C;
+float temp2C;
 
 char server[] = "sovhome.ru";                              // переменная с адрес хоста
 
@@ -57,15 +63,15 @@ void setup() {
 void loop() {
   Serial.println("запрос температуры");
   
-  temp0C = getTemperature(0);
-  temp1C = getTemperature(1);
-  
-  Serial.print("температура(0) = ");
+  getTemperature();
+    
+  Serial.print("температура улицы = ");
   Serial.println(temp0C); 
-  Serial.print("температура(1) = ");
+  Serial.print("температура подачи = ");
   Serial.println(temp1C);
-  
+  Serial.print("температура обратки = ");
+  Serial.println(temp2C);
   sendTemp();  
   
-  delay(10000);
+  delay(1200000);
 }

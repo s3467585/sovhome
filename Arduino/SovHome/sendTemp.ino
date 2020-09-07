@@ -11,11 +11,14 @@ void sendTemp() {
   client.print("k=");
   client.print(getKey);                       // Специальный код обработки запроса на сайте, например asREb25C
   client.print("&");
-  client.print("t=");                   
+  client.print("t0=");                   
   client.print(temp0C);
   client.print("&");
-  client.print("h=");
+  client.print("t1=");
   client.print(temp1C);
+  client.print("&");
+  client.print("t2=");
+  client.print(temp2C);
   client.println(" HTTP/1.1");
   client.print( "Host: " );
   client.println(server);
@@ -26,10 +29,11 @@ void sendTemp() {
   client.flush();
   } else {
    
-   Serial.println("# Связь с хостом отсутствует");
+  Serial.println("# Связь с хостом отсутствует");
   
-   client.stop();
-   delay(1000);
+  client.stop();
+  delay(10000);
+  sendTemp();
   }
   
 }
