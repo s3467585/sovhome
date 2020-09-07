@@ -12,7 +12,7 @@ const char* password = "12345678";
 float temp0C;                                            // переменная значения температуры в градусах цельсия
 float temp1C; 
 
-char server[] = "sovhome.cu.ma";                              // переменная с адрес хоста
+char server[] = "sovhome.ru";                              // переменная с адрес хоста
 
 char temperatureCString[7];                             // переменная для храненния температуры в градусах цельсия
 
