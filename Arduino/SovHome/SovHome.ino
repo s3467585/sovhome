@@ -11,14 +11,14 @@ DeviceAddress ds3 = {0x28, 0x13, 0x69, 0x79, 0x97, 0x12, 0x03, 0x08};    // Ад
   
 
 const char* getKey = "sovhome";                         // специальный код, для обработки запроса на сервере
-const char* ssid = "IoT";                          // перемныные для подключения к точке доступа
+const char* ssid = "IoT";                               // перемныные для подключения к точке доступа
 const char* password = "876543210";
 
-float temp0C;                                            // переменная значения температуры в градусах цельсия
+float temp0C;                                           // переменная значения температуры в градусах цельсия
 float temp1C;
 float temp2C;
 
-char server[] = "sovhome.ru";                              // переменная с адрес хоста
+char server[] = "sovhome.ru";                           // переменная с адрес хоста
 
 char temperatureCString[7];                             // переменная для храненния температуры в градусах цельсия
 
