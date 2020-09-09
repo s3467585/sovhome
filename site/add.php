@@ -25,7 +25,7 @@ $objekt = "температура";
 
 if ($temp1 >= 120) {
 	echo "ВНИМАНИЕ!";
-	mailalarm();
+	//mailalarm();
 }
 
 $total = mysqli_fetch_row(mysqli_query($connect, "SELECT count(*) FROM `stat`"))[0];

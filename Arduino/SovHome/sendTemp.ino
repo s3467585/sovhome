@@ -22,6 +22,7 @@ void sendTemp() {
   client.println(" HTTP/1.1");
   client.print( "Host: " );
   client.println(server);
+  client.println("User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36");
   client.println( "Connection: close" );
   client.println();
   client.println();

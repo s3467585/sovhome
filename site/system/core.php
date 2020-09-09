@@ -8,7 +8,7 @@ define ('DBNAME', 's92243jz_sovhome'); // Имя базы данных
 
 
 //Подключаемся к БД Хост, Имя пользователя MySQL, его пароль, имя нашей базы
-$connect = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME );
+$connect = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
 
 /* проверка соединения */
 if (mysqli_connect_errno()) {
