@@ -26,7 +26,7 @@
 	head();
 ?>
 
-<!-- <div class="content">
+<div class="content">
 	
 	<div class="title">
 	</div>
@@ -35,7 +35,7 @@
 			<?php 
 				$error=false;
 				if (time() - $ard['connection'] > 120) {
-					echo 'Потеряно';
+					echo '<font color=white>Потеряно</font>';
 					$error = true;
 				} else {
 					echo 'Активно';
@@ -45,14 +45,14 @@
 		Время работы: 
 			<?php 
 				if ($error == true) {
-					echo '--------';
+					echo '<font color=white>not connected </font>';
 				} else {
 					echo datediff($ard['reboot'],time());
 					//var_dump($ard);
-			}?>
-	</div>
+				}
+			?>
 </div>
-<div class="content">
+<!-- <div class="content">
 	<div class="title">RAM Arduino</div>
 	<div class="text">Свободно памяти: <?php echo $ard['ram']; ?> байт(а) / 2048 байта<br/>
 		<?php
@@ -86,6 +86,7 @@
 	<div class="title">Датчик освещенности</div>
 	<div class="text"><small>При значении лм менее 700 и включенном датчике движения 2 автоматически включается ночной светильник</small><br>Показания: 1200 лм</div>
 </div> -->
+
 <script type="text/javascript">
 // Load the fonts
 	Highcharts.theme = {
@@ -102,6 +103,7 @@
 	      style: {
 	         fontFamily: "verdana"
 	      },
+	      borderRadius: '10',
 	      plotBorderColor: '#606063'
 	   },
 	   title: {
@@ -341,7 +343,8 @@
 	});
 	});
 </script>
-	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto; margin-top: 5px; margin-bottom: 5px;">
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto; margin-top: 5px; margin-bottom: 5px;">
 </div>
 <!-- <div class="content">
 	<div class="text center"><small>Умный дом на базе Arduino UNO + Ethernet Shield &copy; www.factoblog.ru</small>

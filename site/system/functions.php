@@ -57,10 +57,11 @@ function mailalarm(){
     $subject = 'Новая тема';
     $message = 'срочное сообщение';
     $headers = array(
-        'From' => 'sovhomec@sovhome.cu.ma',
-        'Reply-To' => 'sovhomec@sovhome.cu.ma',
+        'From' => 'sovhome@sovhome.ru',
+        'Reply-To' => 'sovhome@sovhome.ru',
         'X-Mailer' => 'PHP/' . phpversion()
     );
     mail($to, $subject, $message, $headers);
+    echo '<br>MailAlarm - Ok!';
 }
 ?>

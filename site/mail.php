@@ -1,13 +1,18 @@
 <?php
-	$mail = protect($_GET['mail']);
-	echo $mail;
-	if ($mail == 1){
-		$to = 's3467585@gmail.com';
+	
+	header('Content-Type: text/html; charset=utf-8');
+	$key = protect($_GET["k"]);
+	
+	echo '<br>' . $key;
+	echo 'test';
+	if ($key == 1){
+		$to = "s3467585@gmail.com";
 	} else {
-		$to = '_chelovek_@mail.ru';
+		$to = "_chelovek_@mail.ru";
 	}
+	echo $to;
 
-	$objekt = 'Температура';
+	/*$objekt = 'Температура';
 	$int = '10';
 
 	$subject = 'SovHome - Внимание';
@@ -23,5 +28,5 @@
 	if (!$success){
 		$errorMessage = error_get_last()['message'];
 		echo '<br>Ошибка отправки Mail';
-	} 
+	} */
 ?>

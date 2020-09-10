@@ -13,6 +13,7 @@ DeviceAddress ds3 = {0x28, 0x13, 0x69, 0x79, 0x97, 0x12, 0x03, 0x08};    // Ад
 const char* getKey = "sovhome";                         // специальный код, для обработки запроса на сервере
 const char* ssid = "IoT";                               // перемныные для подключения к точке доступа
 const char* password = "876543210";
+String reboot = "rb" ;
 
 float temp0C;                                           // переменная значения температуры в градусах цельсия
 float temp1C;
@@ -57,6 +58,8 @@ void setup() {
   Serial.println(WiFi.gatewayIP());
 
   DS18B20.begin();                                     // инициализируем объект датчика температуры
+
+  sendWeb(reboot, 1);                                  // регистрация события презагрузки модуля
 
 }
 
