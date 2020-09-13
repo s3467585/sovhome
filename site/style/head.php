@@ -7,15 +7,15 @@
 	<link rel="apple-touch-icon" href="/style/img/apple-touch-icon.png" />
 	<link rel="stylesheet" href="/style/style.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<title>Home-Automatic</title>
+	<title>SovHome</title>
 </head>
 <body>
 	<script src="/style/js/highcharts.js"></script>
 	<script src="/style/js/modules/exporting.js"></script>
 	<div class="wapper">
 		<div class="header">
-			<h1>Домашние технологии</h1>
-			<h2>инженерия дома</h2>
+			<h1>Состояние объекта</h1>
+			<!-- <h2>инженерия дома</h2> -->
 			<h2>
 				<a href="https://time.is/Yekaterinburg" id="time_is_link" rel="nofollow"></a>
 				<span id="Yekaterinburg_z44a"></span>

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Highstock Example</title>
+
+        <style type="text/css">
+
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    </head>
+    <body>
+<!-- <script src="/lib/jquery/jquery-3.5.1.min.js"></script>
+<script src="/lib/highchart/stock/highstock.js"></script>
+<script src="/lib/highchart/stock/themes/dark-unica.js"></script>
+<script src="/lib/highchart/stock/modules/exporting.js"></script> -->
+<a href="https://unboxit.ru" target="_blank">Это и многое другое на unboxIT.ru</a>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+<script type="text/javascript">
+    $.getJSON('/system/json.php', function (data) {
+
+                // split the data set into voltage and current
+                var voltage = [],
+                    current = [],
+                    active = [],
+                    dataLength = data.length,
+
+                i = 0;
+                for (i; i < dataLength; i += 1) {
+                    voltage.push([
+                        data[i][0] * 1000, // the date
+                        data[i][1], // voltage
+                    ]);
+
+                    current.push([
+                        data[i][0] * 1000, // the date
+                        data[i][2] // the current
+                    ]);
+                    
+                    active.push([
+                        data[i][0] * 1000, // the date
+                        data[i][3] // the active power
+                    ]);
+                }
+    Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        ntype: 'spline',
+        name: 'гр.ц.',
+        data: voltage,
+        yAxis: 0
+    }, {
+        name: 'London',
+        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+    }]
+});
+</script>
+
+
+<!-- <div id="container2" style="height: 500px; min-width: 310px"></div>
+<script>
+    Highcharts.setOptions({
+                lang: {
+                    loading: 'Загрузка...',
+                    months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                    weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                    shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+                    exportButtonTitle: "Экспорт",
+                    printButtonTitle: "Печать",
+                    rangeSelectorFrom: "С",
+                    rangeSelectorTo: "По",
+                    rangeSelectorZoom: "Период",
+                    downloadPNG: 'Скачать PNG',
+                    downloadJPEG: 'Скачать JPEG',
+                    downloadPDF: 'Скачать PDF',
+                    downloadSVG: 'Скачать SVG',
+                    printChart: 'Напечатать график'
+                }
+        });
+</script>
+
+        <script type="text/javascript">
+            $.getJSON('/system/json.php', function (data) {
+
+                // split the data set into voltage and current
+                var voltage = [],
+                    current = [],
+                    active = [],
+                    dataLength = data.length,
+
+                i = 0;
+                for (i; i < dataLength; i += 1) {
+                    voltage.push([
+                        data[i][0] * 1000, // the date
+                        data[i][1], // voltage
+                    ]);
+
+                    current.push([
+                        data[i][0] * 1000, // the date
+                        data[i][2] // the current
+                    ]);
+                    
+                    active.push([
+                        data[i][0] * 1000, // the date
+                        data[i][3] // the active power
+                    ]);
+                }
+
+
+                // create the chart
+                Highcharts.stockChart('container2', {
+
+                    rangeSelector: {
+                        selected: 1,
+                        buttons: [{
+                            type: 'minute',
+                            count: 10,
+                            text: '10м'
+                        }, {
+                            type: 'hour',
+                            count: 1,
+                            text: '1ч'
+                        }, {
+                            type: 'hour',
+                            count: 6,
+                            text: '6ч'
+                        }, {
+                            type: 'day',
+                            count: 1,
+                            text: '1дн'
+                        }, {
+                            type: 'week',
+                            count: 1,
+                            text: 'нед'
+                        }, {
+                            type: 'month',
+                            count: 1,
+                            text: 'мес'
+                        }, {
+                            type: 'year',
+                            count: 1,
+                            text: 'год'
+                        }, {
+                            type: 'all',
+                            text: 'Всё'
+                        }]
+                    },
+
+                    title: {
+                        text: 'Электросеть'
+                    },
+
+                    yAxis: [{
+                        labels: {
+                            align: 'right',
+                            x: -3
+                        },
+                        title: {
+                            text: 'Уличная температура'
+                        },
+                        height: '50%',
+                        lineWidth: 1,
+                        resize: {
+                            enabled: true
+                        }
+                    }, {
+                        labels: {
+                            align: 'right',
+                            x: -3
+                        },
+                        title: {
+                            text: 'Подача'
+                        },
+                        top: '52%',
+                        height: '20%',
+                        offset: 0,
+                        lineWidth: 1
+                    }, {
+                        labels: {
+                            align: 'right',
+                            x: -3
+                        },
+                        title: {
+                            text: 'Обратка'
+                        },
+                        top: '75%',
+                        height: '20%',
+                        offset: 0,
+                        lineWidth: 1
+                    }],
+
+                    tooltip: {
+                        split: true
+                    },
+
+                    series: [{
+                        type: 'spline',
+                        name: 'гр.ц.',
+                        data: voltage,
+                        yAxis: 0
+                    }, {
+                        type: 'spline',
+                        name: 'гр.ц.',
+                        data: current,
+                        yAxis: 1
+                    }, {
+                        type: 'spline',
+                        name: 'гр.ц.',
+                        data: active,
+                        yAxis: 2
+                    }]
+                });
+            });
+        </script> -->
+    </body>
+</html>

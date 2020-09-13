@@ -30,22 +30,22 @@
 	
 	<div class="title">
 	</div>
-	<div class="title">Связь с Arduino</div>
+	<div class="title"><h1>Данные контроллера</h1></div>
 	<div class="text">Соединение: 
 			<?php 
 				$error=false;
-				if (time() - $ard['connection'] > 120) {
-					echo '<font color=white>Потеряно</font>';
+				if (time() - $ard['connection'] > 2100) {
+					echo '<font color=#faf7f7>Потеряно</font>';
 					$error = true;
 				} else {
 					echo 'Активно';
 			}?><br>
-		Последний сеанс: <?php echo clock($ard['connection']);?><br>
-		Последняя перезагрузка: <?php echo clock($ard['reboot']);?><br>
+		Выгрузка: <?php echo clock($ard['connection']);?><br>
+		Включён: <?php echo clock($ard['reboot']);?><br>
 		Время работы: 
 			<?php 
 				if ($error == true) {
-					echo '<font color=white>not connected </font>';
+					echo '<font color=#faf7f7>not connected </font>';
 				} else {
 					echo datediff($ard['reboot'],time());
 					//var_dump($ard);
@@ -293,7 +293,7 @@
 	$(function () {
 	$('#container').highcharts({
 		chart: {
-			type: 'line'
+			type: 'spline'
 		},
 		title: {
 			text: 'Температурные показатели'
@@ -311,7 +311,7 @@
 			}
 		},
 		plotOptions: {
-			line: {
+			spline: {
 				dataLabels: {
 					enabled: true
 				},
