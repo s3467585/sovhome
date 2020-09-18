@@ -30,8 +30,8 @@
 
 	    // Настройки вашей почты
 	    $mail->Host       = 'smtp.mail.ru'; 					// SMTP сервера вашей почты
-	    $mail->Username   = 'server-2020-86@mail.ru'; 		// Логин на почте
-	    $mail->Password   = 'T2yYuOUp4au&';                     // Пароль на почте
+	    $mail->Username   = 'people.info@mail.ru'; 		// Логин на почте
+	    $mail->Password   = 'I5OOooR7ayl^';                     // Пароль на почте
 	    $mail->SMTPSecure = 'ssl';
 	    $mail->Port       = 465;
 	    $mail->setFrom('server-2020-86@mail.ru', 'SovHome'); 	// Адрес самой почты и имя отправителя
