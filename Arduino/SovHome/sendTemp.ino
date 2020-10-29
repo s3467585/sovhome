@@ -5,7 +5,7 @@
 void sendTemp() {
   if (client.connect(server, 80)) {
     
-  Serial.println("# Хост подключен");
+  Serial.println("# sendTemp - Хост подключен");
     
   client.print( "GET /add.php?");
   client.print("k=");
