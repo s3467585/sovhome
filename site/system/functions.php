@@ -53,15 +53,49 @@ function foot() {
 
 # Отправка сообщения на Mail
 function mailalarm(){   
-    $to      = 's3467585@gmail.com';
-    $subject = 'Новая тема';
-    $message = 'срочное сообщение';
-    $headers = array(
-        'From' => 'sovhome@sovhome.ru',
-        'Reply-To' => 'sovhome@sovhome.ru',
-        'X-Mailer' => 'PHP/' . phpversion()
-    );
-    mail($to, $subject, $message, $headers);
-    echo '<br>MailAlarm - Ok!';
+    
+	// Формирование самого письма
+	$title = "Критическая температура котла";
+	$body = "
+		<h2>Новое письмо</h2>
+		<b>Имя:</b>SovHome<br>
+		<b>Почта:</b>people.info@mail.ru<br><br>
+		<b>Сообщение:</b><br>Проверить состояние котла";
+
+	// Настройки PHPMailer
+	$mail = new PHPMailer\PHPMailer\PHPMailer();
+
+	try {
+	    $mail->isSMTP();   
+	    $mail->CharSet = "UTF-8";
+	    $mail->SMTPAuth   = true;
+	    //$mail->SMTPDebug = 2;
+	    $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
+
+	    // Настройки вашей почты
+	    $mail->Host       = 'smtp.mail.ru'; 					// SMTP сервера вашей почты
+	    $mail->Username   = 'people.info@mail.ru'; 		        // Логин на почте
+	    $mail->Password   = 'I5OOooR7ayl^';                     // Пароль на почте
+	    $mail->SMTPSecure = 'ssl';
+	    $mail->Port       = 465;   
+	    $mail->setFrom('people.info@mail.ru', 'SovHome'); 	    // Адрес самой почты и имя отправителя
+ 
+	    // Получатель письма
+	    $mail->addAddress('s3467585@gmail.com');  
+	    $mail->addAddress('_chelovek_@mail.ru');    			// Ещё один, если нужен
+
+	// Отправка сообщения
+	$mail->isHTML(true);
+	$mail->Subject = $title;
+	$mail->Body = $body;    
+
+	// Проверяем отравленность сообщения
+	if ($mail->send()) {$result = "success";} 
+	else {$result = "error";}
+
+	} catch (Exception $e) {
+	    $result = "error";
+	    $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
+	}
 }
 ?>

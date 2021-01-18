@@ -3,6 +3,7 @@
 
     require_once 'system/core.php'; // стартуем ядро двигателя
 	require_once 'system/functions.php'; // стартуем функции
+	require_once 'system/mail.php'; // стартуем mail рассылку
 	
 	$weather = mysqli_query($connect, "SELECT * FROM `stat` ORDER BY `id` ASC LIMIT 15");
 	$sensor = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `sensor`"));
