@@ -1,8 +1,13 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+    header('Content-Type: text/html; charset=utf-8');
+    
+    require_once 'system/core.php'; // стартуем ядро двигателя
+    require_once 'system/functions.php'; // стартуем функции
 
-require_once 'system/core.php'; // стартуем ядро двигателя
-require_once 'system/functions.php'; // стартуем функции
+    // Файлы phpmailer
+	require_once 'lib/phpmailer/PHPMailer.php';
+	require_once 'lib/phpmailer/SMTP.php';
+	require_once 'lib/phpmailer/Exception.php';
 
 $key = protect($_GET["k"]);
 
@@ -28,7 +33,7 @@ $objekt = "температура";
 if ($temp1 < 25) {
 	echo "ВНИМАНИЕ! ";
 	mailalarm();
-	echo '<br>MailAlarm 2 - Ok!';
+	echo "MailAlarm - Ok! ";
 }
 
 $total = mysqli_fetch_row(mysqli_query($connect, "SELECT count(*) FROM `stat`"))[0];

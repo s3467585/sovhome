@@ -58,9 +58,9 @@ function mailalarm(){
 	$title = "Критическая температура котла";
 	$body = "
 		<h2>Новое письмо</h2>
-		<b>Имя:</b>SovHome<br>
-		<b>Почта:</b>people.info@mail.ru<br><br>
-		<b>Сообщение:</b><br>Проверить состояние котла";
+		<b>Имя: </b>SovHome<br>
+		<b>Почта: </b>people.ifo@mail.ru<br><br>
+		<b>Сообщение:</b><br><a href='http://sovhome.ru'>Проверить состояние котла</a>";
 
 	// Настройки PHPMailer
 	$mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -74,11 +74,11 @@ function mailalarm(){
 
 	    // Настройки вашей почты
 	    $mail->Host       = 'smtp.mail.ru'; 					// SMTP сервера вашей почты
-	    $mail->Username   = 'people.info@mail.ru'; 		        // Логин на почте
-	    $mail->Password   = 'I5OOooR7ayl^';                     // Пароль на почте
+	    $mail->Username   = 'people.ifo@mail.ru'; 		        // Логин на почте
+	    $mail->Password   = 'AOriOUpty*64';                     // Пароль на почте
 	    $mail->SMTPSecure = 'ssl';
 	    $mail->Port       = 465;   
-	    $mail->setFrom('people.info@mail.ru', 'SovHome'); 	    // Адрес самой почты и имя отправителя
+	    $mail->setFrom('people.ifo@mail.ru', 'SovHome'); 	    // Адрес самой почты и имя отправителя
  
 	    // Получатель письма
 	    $mail->addAddress('s3467585@gmail.com');  
