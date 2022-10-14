@@ -1,8 +1,8 @@
 <?php
     date_default_timezone_set('Asia/Yekaterinburg');
 
-    require_once 'system/core.php'; // стартуем ядро двигателя
-	require_once 'system/functions.php'; // стартуем функции
+    require_once ($_SERVER['DOCUMENT_ROOT'].'/system/core.php'); // стартуем ядро двигателя
+	require_once ($_SERVER['DOCUMENT_ROOT'].'/system/functions.php'); // стартуем функции
 	
 	
 	$weather = mysqli_query($connect, "SELECT * FROM `stat` ORDER BY `id` ASC LIMIT 15");

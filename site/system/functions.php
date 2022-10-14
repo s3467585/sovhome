@@ -23,6 +23,7 @@ function clock($time) {
 	$timep = str_replace($months_eng,$months_rus,$timep);
 	return $timep;
 }
+
 function datediff($date1, $date2)
 {
 	$diff = $date2 - $date1;
@@ -42,13 +43,24 @@ function datediff($date1, $date2)
 	
 }
 
+# Шапка
 function head() {
-	require './style/head.php';
+	require ($_SERVER['DOCUMENT_ROOT'].'/style/head.php');
+}
+
+# Тело
+function body() {
+	require ($_SERVER['DOCUMENT_ROOT'].'/style/body.php');
 }
 
 # Низ
 function foot() {
-	require './style/foot.php';
+	require ($_SERVER['DOCUMENT_ROOT'].'/style/foot.php');
+}
+
+# Тестовая страница
+function test() {
+	require ($_SERVER['DOCUMENT_ROOT'].'/style/test.php');
 }
 
 # Отправка сообщения на Mail
