@@ -4,7 +4,6 @@
     require_once 'system/core.php'; // стартуем ядро двигателя
 	require_once 'system/functions.php'; // стартуем функции
 	
-	
 	$weather = mysqli_query($connect, "SELECT * FROM `stat` ORDER BY `id` ASC LIMIT 15");
 	$sensor = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `sensor`"));
 	$query = mysqli_query($connect, "SELECT `id`, `value` FROM `settings` WHERE 1");
@@ -31,7 +30,7 @@
 	
 	<div class="title">
 	</div>
-	<div class="title"><h1>Данные контроллера</h1></div>
+	<div class="title">Связь с Arduino</div>
 	<div class="text">Соединение: 
 			<?php 
 				$error=false;
@@ -294,7 +293,7 @@
 	$(function () {
 	$('#container').highcharts({
 		chart: {
-			type: 'spline'
+			type: 'line'
 		},
 		title: {
 			text: 'Температурные показатели'
@@ -312,7 +311,7 @@
 			}
 		},
 		plotOptions: {
-			spline: {
+			line: {
 				dataLabels: {
 					enabled: true
 				},
